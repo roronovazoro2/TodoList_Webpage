@@ -1,0 +1,245 @@
+:root {
+    --dark-bg: #131316;
+    --dark-container: #1c1c21;
+    --dark-input: #26262c;
+    --dark-text: #f4f4f4;
+    --dark-border: #393a41;
+    --dark-accent: #ff7f50;
+    --light-bg: #f0f8ff;
+    --light-container: #ffffff;
+    --light-input: #e0f7fa;
+    --light-text: #05445e;
+    --light-border: #00bcd4;
+    --light-accent: #00796b;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--light-container);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--light-accent);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.task-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.task-input input[type="text"],
+.task-input textarea,
+.task-input select {
+    flex: 1 1 calc(50% - 15px);
+    padding: 12px;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    background-color: var(--light-input);
+    color: var(--light-text);
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.task-input input[type="text"]:focus,
+.task-input textarea:focus,
+.task-input select:focus {
+    box-shadow: 0 0 10px var(--light-accent);
+    transform: scale(1.02);
+}
+
+.task-input button {
+    padding: 12px 20px;
+    background-color: var(--light-accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.task-input button:hover {
+    background-color: var(--light-text);
+    color: var(--light-bg);
+    transform: scale(1.1);
+}
+
+.task-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.task-controls input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    background-color: var(--light-input);
+    color: var(--light-text);
+    font-size: 1rem;
+    transition: box-shadow var(--transition-speed);
+}
+
+.task-controls input[type="text"]:focus {
+    box-shadow: 0 0 10px var(--light-accent);
+}
+
+.task-controls button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--light-border);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.task-controls button:hover {
+    background-color: var(--light-accent);
+    transform: translateY(-3px);
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: var(--light-input);
+    border-radius: 8px;
+    border-left: 6px solid var(--light-border);
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.task-list li:hover {
+    transform: scale(1.02);
+    background-color: var(--light-accent);
+    color: white;
+}
+
+.task-list li.completed {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.8;
+}
+
+.task-list button {
+    padding: 8px 12px;
+    background-color: var(--light-border);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.task-list button:hover {
+    background-color: var(--light-accent);
+    color: var(--light-bg);
+}
+
+#theme-toggle {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: var(--light-border);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+#theme-toggle:hover {
+    background-color: var(--light-accent);
+    transform: scale(1.1);
+}
+
+body.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark .container {
+    background: var(--dark-container);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+body.dark .task-input input[type="text"],
+body.dark .task-input textarea,
+body.dark .task-input select {
+    background-color: var(--dark-input);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+body.dark .task-input button,
+body.dark #theme-toggle {
+    background-color: var(--dark-accent);
+}
+
+body.dark .task-list li {
+    background-color: var(--dark-input);
+    border-left: 6px solid var(--dark-border);
+}
+
+body.dark .task-list button {
+    background-color: var(--dark-accent);
+}
+
+@media (max-width: 600px) {
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input[type="text"],
+    .task-input textarea,
+    .task-input select {
+        flex: 1 1 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
